@@ -32,4 +32,8 @@ export class HomePage {
 
   }
 
+  viewDetail(newsInfo){
+    this.navCtrl.push('NewsDetailPage', newsInfo);
+  }
+
 }
