@@ -10,7 +10,7 @@
   <ion-list >
     <ion-item *ngFor="let newsInfo of news" (click)="viewDetail(newsInfo)" no-lines>
       <ion-card>
-        <img src="{{ newsInfo.imageUrl }}"/>
+        <img src="http://localhost:8888/news/{{ newsInfo.imageUrl }}"/>
         <ion-card-content>
           <ion-card-title>
             {{ newsInfo.title }}
