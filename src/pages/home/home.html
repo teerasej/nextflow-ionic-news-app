@@ -1,22 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Nextflow News
+      Login 
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list >
-    <ion-item *ngFor="let newsInfo of news" (click)="viewDetail(newsInfo)" no-lines>
-      <ion-card>
-        <img src="http://localhost:8888/news/{{ newsInfo.imageUrl }}"/>
-        <ion-card-content>
-          <ion-card-title>
-            {{ newsInfo.title }}
-          </ion-card-title>
-        </ion-card-content>
-      </ion-card>
-    </ion-item>
-  </ion-list>
+<ion-content padding>
+  <ion-item>
+    <ion-label stacked>Username:</ion-label>
+    <ion-input type="text" [(ngModel)]="username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label stacked>Password:</ion-label>
+    <ion-input type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+  
+  <button ion-button block (click)="signIn(username, password)">Sign In</button>
 </ion-content>
