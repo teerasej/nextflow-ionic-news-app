@@ -29,7 +29,7 @@ export class HomePage {
   ];
 
   constructor(public navCtrl: NavController) {
-
+    
   }
 
   viewDetail(newsInfo){
