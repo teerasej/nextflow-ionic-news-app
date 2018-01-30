@@ -1,8 +1,7 @@
-import { INewsInfo } from './../../data/InewsInfo';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { NewsProvider } from '../../providers/news/news';
 import { NewsDetailPage } from '../news-detail/news-detail';
+import { HttpClient } from '@angular/common/http/src/client';
 
 @Component({
   selector: 'page-home',
@@ -10,15 +9,14 @@ import { NewsDetailPage } from '../news-detail/news-detail';
 })
 export class HomePage {
 
-  news:INewsInfo[];
+  news = [];
 
-  constructor(public navCtrl: NavController, public newsProvider: NewsProvider) {
-    this.newsProvider.getAllNews().subscribe(
-      (data) => {     
+  constructor(public navCtrl: NavController, public http: HttpClient) {
+    this.http.get('http://localhost:8888/news/').subscribe(
+      (data:any) => {     
         this.news = data;
-
       },
-      (error) => {}
+      (error) => { console.log(error) }
     );
   }
 
