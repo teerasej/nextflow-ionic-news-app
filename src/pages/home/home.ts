@@ -12,7 +12,7 @@ export class HomePage {
     
   }
 
-  signIn(username, password){
+  signIn(_username, _password){
 
     
 
