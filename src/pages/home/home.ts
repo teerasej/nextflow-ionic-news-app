@@ -9,14 +9,34 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
 
   constructor(public navCtrl: NavController, public http: HttpClient) {
-    
+
   }
 
-  signIn(username, password){
+  signIn(_username, _password) {
 
-    
+    let data = {
+      username: _username,
+      password: _password
+    };
 
-    this.navCtrl.push('FeedPage');
+    this.http.post('http://localhost:8888/news/signin', data)
+      .subscribe(
+      (data: any) => {
+        console.log(data);
+
+        if (data.result) {
+          this.navCtrl.setRoot('FeedPage');
+        } else {
+          alert('Sorry, please try again');
+        }
+
+      },
+      (error) => {
+        console.log(error);
+      }
+      )
+
+
   }
 
 }
