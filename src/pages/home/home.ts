@@ -27,7 +27,7 @@ export class HomePage {
         if (data.result) {
           this.navCtrl.setRoot('FeedPage');
         } else {
-          alert('Sorry, please try again');
+          alert('Sorry, please check username and password, then try again');
         }
 
       },
